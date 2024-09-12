@@ -3,3 +3,19 @@
 	<field name="res_model">estate_property</field>
 	<field name="view_mode">tree,form</field>
 </record>
+
+<record id="estate_property_view_tree" model="ir.ui.view">
+        <field name="name">estate_property.tree</field>
+        <field name="model">estate_property</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="Title"/>
+                <field name="Postcode"/>
+                <field name="Bedrooms"/>
+                <field name="Living Area (sqm)"/>
+                <field name="Expected Price"/>
+                <field name="Selling Price"/>
+                <field name="Avaiable From"/>
+            </tree>
+        </field>
+</record>
