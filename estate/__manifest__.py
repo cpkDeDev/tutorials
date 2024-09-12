@@ -7,5 +7,7 @@ Created on 12.09.2024
     'name': 'estate',
     'depends': [
         'base'
-    ]
+    ],
+    'installable': True,
+    'application': True
 }
