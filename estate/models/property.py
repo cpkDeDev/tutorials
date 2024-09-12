@@ -12,7 +12,7 @@ class property(models.Model):
     name = fields.Char('Name',required = True)
     postcode = fields.Char('Postcode')
     description = fields.Text('Description')
-    date_availability = fields.Date('Avaiable',copy = False,default = add(today(),3,'Month')
+    date_availability = fields.Date('Avaiable',copy = False,default = fields.Datetime.today()) # TODO: add 3 months add()
     expected_price = fields.Float('Price Expected',required = True)
     selling_price = fields.Float('Selling Price', readonly=True,copy = False)
     bedrooms = fields.Integer('Bedrooms',default = 2)
@@ -30,3 +30,14 @@ class property(models.Model):
                     ('west', 'West')
                     ],
         help="Ausrichtung der Hausfront")
+    active = fields.active(active=True)
+    state = fields.Selection(
+        string='Status',
+        selection=[
+                    ('new', 'New'), 
+                    ('offer_received', 'Offer Received'), 
+                    ('offer_accepted', 'Offer Accepted'), 
+                    ('sold', 'Sold'), 
+                    ('canceled', 'Canceled')
+                    ],
+        help="Zustand des Angebotes")
